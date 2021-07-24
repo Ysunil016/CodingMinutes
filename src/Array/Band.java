@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class Band {
   public static void main(String[] args) {
-    int[] arr = new int[]{1, 9, 3, 0, 18, 5, 2, 4, 10, 7, 12, 6};
+    int[] arr = new int[]{1, 9, 3, 0, 18, 5, 2, 10, 7, 12, 6};
     System.out.println(bandLen(arr));
     System.out.println(bandLen2(arr));
     System.out.println(bandLen3(arr));
