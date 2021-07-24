@@ -23,6 +23,7 @@ public class KeySort {
     }
   }
 
+  // O(NLgN)
   private static void sortKey(ArrayList<String> Stress, int col, boolean isNumeric) {
     if (isNumeric)
       Stress.sort(
