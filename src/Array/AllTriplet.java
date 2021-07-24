@@ -77,7 +77,11 @@ public class AllTriplet {
       int req = target - arr[i];
       while (left < right) {
         int currentSum = arr[left] + arr[right];
-        if (currentSum == req) result.add(new int[]{arr[i], arr[left], arr[right]});
+        if (currentSum == req) {
+          result.add(new int[]{arr[i], arr[left], arr[right]});
+          left++;
+          right--;
+        }
         if (currentSum < req)
           left++;
         else
