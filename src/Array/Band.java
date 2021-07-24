@@ -59,14 +59,14 @@ public class Band {
         int rightElement = currentElement + 1;
         int leftElement = currentElement - 1;
         while (elementSet.contains(rightElement)) {
+          visited.add(rightElement);
           rightElement++;
           len++;
-          visited.add(rightElement);
         }
         while (elementSet.contains(leftElement)) {
+          visited.add(leftElement);
           leftElement--;
           len++;
-          visited.add(leftElement);
         }
 
         maxLen = Math.max(maxLen, len);
