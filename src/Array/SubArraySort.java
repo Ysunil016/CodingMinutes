@@ -1,20 +1,56 @@
 package Array;
 
+import java.util.Arrays;
+
 public class SubArraySort {
   public static void main(String[] args) {
     int[] arr = new int[]{1, 2, 3, 4, 5, 8, 6, 7, 9, 10, 11};
     int[] res = indicesToSort(arr);
     System.out.println(res[0] + " " + res[1]);
+    res = indicesToSort2(arr);
+    System.out.println(res[0] + " " + res[1]);
 
     arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
     res = indicesToSort(arr);
+    System.out.println(res[0] + " " + res[1]);
+    res = indicesToSort2(arr);
     System.out.println(res[0] + " " + res[1]);
 
     arr = new int[]{9, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11};
     res = indicesToSort(arr);
     System.out.println(res[0] + " " + res[1]);
+    res = indicesToSort2(arr);
+    System.out.println(res[0] + " " + res[1]);
   }
 
+
+  // O(NLgN) | O(N)
+  static int[] indicesToSort2(int[] arr) {
+    int[] original = arr.clone();
+    Arrays.sort(arr);
+    // Find the Defected Min and Max Value
+    int leftIndex = -1;
+
+    for (int i = 0; i < arr.length - 1; i++) {
+      if (original[i] != arr[i]) {
+        leftIndex = i;
+        break;
+      }
+    }
+
+    int rightIndex = -1;
+
+    for (int i = arr.length - 1; i >= 0; i--) {
+      if (original[i] != arr[i]) {
+        rightIndex = i;
+        break;
+      }
+    }
+
+    return new int[]{leftIndex, rightIndex};
+  }
+
+  // O(N) | O(1)
   static int[] indicesToSort(int[] arr) {
     int[] minMax = new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE};
 
