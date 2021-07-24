@@ -11,6 +11,8 @@ public class Rain {
   static int rainTrap(int[] arr) {
     int water = 0;
 
+    if (arr.length <= 2) return 0;
+
     int[] leftToRight = findMax(arr, true);
     int[] rightToLeft = findMax(arr, false);
 
