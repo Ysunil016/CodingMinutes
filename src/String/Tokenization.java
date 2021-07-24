@@ -12,6 +12,7 @@ public class Tokenization {
     }
   }
 
+  // O(N) | O(N)
   static List<String> tokenize(String str) {
     StringBuilder strBuild = new StringBuilder();
     List<String> res = new ArrayList<>();
