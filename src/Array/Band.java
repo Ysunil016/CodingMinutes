@@ -7,8 +7,8 @@ public class Band {
   public static void main(String[] args) {
     int[] arr = new int[]{1, 9, 3, 0, 18, 5, 2, 4, 10, 7, 12, 6};
     System.out.println(bandLen(arr));
-
     System.out.println(bandLen2(arr));
+    System.out.println(bandLen3(arr));
   }
 
   // O(NlgN) | O(1)
@@ -66,6 +66,36 @@ public class Band {
         while (elementSet.contains(leftElement)) {
           visited.add(leftElement);
           leftElement--;
+          len++;
+        }
+
+        maxLen = Math.max(maxLen, len);
+      }
+      counter++;
+    }
+    return maxLen;
+  }
+
+  // O(N) | O(N)  -> Start Head Strategy
+
+  private static int bandLen3(int[] arr) {
+    HashSet<Integer> elementSet = new HashSet<>();
+    for (int x : arr) elementSet.add(x);
+
+    int maxLen = 0;
+
+    int counter = 0;
+    while (counter < arr.length) {
+      int currentElement = arr[counter];
+
+      // Look for Start Head
+      if (!elementSet.contains(currentElement - 1)) {
+        int len = 1;
+
+        // Finding All Chain Length
+        int rightElement = currentElement + 1;
+        while (elementSet.contains(rightElement)) {
+          rightElement++;
           len++;
         }
 
