@@ -43,4 +43,9 @@ class Tree {
     }
   }
 
+  int height(Tree tree){
+    if(tree == null) return 0;
+    return Math.max(height(tree.left), height(tree.right)) + 1;
+  }
+
 }
