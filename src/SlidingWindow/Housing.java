@@ -39,17 +39,17 @@ public class Housing {
   private static List<int[]> houseCount2(int[] arr, int area) {
     List<int[]> res = new ArrayList<>();
     int left = 0;
-    int right = 1;
+    int right = 0;
     int sum = arr[left];
 
-    while (left < right && right < arr.length) {
+    while (left <= right && right < arr.length - 1) {
       if (sum == area) {
-        res.add(new int[]{left, right - 1});
-        sum += arr[right];
+        res.add(new int[]{left, right});
         right++;
+        sum += arr[right];
       } else if (sum < area) {
-        sum += arr[right];
         right++;
+        sum += arr[right];
       } else {
         sum -= arr[left];
         left++;
