@@ -5,16 +5,6 @@ import java.util.Queue;
 
 public class LevelOrderPrint {
 
-  static class Tree {
-    int val;
-    Tree left;
-    Tree right;
-
-    Tree(int val) {
-      this.val = val;
-    }
-  }
-
   public static void main(String[] args) {
     Tree root = new Tree(1);
     root.left = new Tree(2);
@@ -34,7 +24,7 @@ public class LevelOrderPrint {
       int size = queue.size();
       while (size > 0) {
         Tree node = queue.poll();
-        System.out.print(node.val+" ");
+        System.out.print(node.val + " ");
         if (node.left != null) queue.add(node.left);
         if (node.right != null) queue.add(node.right);
         size--;
