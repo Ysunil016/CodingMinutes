@@ -13,6 +13,7 @@ public class TreeHeight {
     System.out.println("Height "+ height(root));
   }
 
+  // O(N)
   static int height(Tree tree) {
     if (tree == null) return 0;
     return Math.max(height(tree.left), height(tree.right)) + 1;
