@@ -14,6 +14,9 @@ public class TreeHeightBalanced {
     isBalancedHeight(root);
 
     System.out.println("Is Height Balanced ? " + isBalanced);
+
+    Node isBalanced = isBalancedHeight2(root);
+    System.out.println("Is Height Balanced ? " + isBalanced.isBalanced);
   }
 
   static boolean isBalanced = true;
@@ -27,5 +30,32 @@ public class TreeHeightBalanced {
     if (Math.abs(left - right) > 1) isBalanced = false;
 
     return Math.max(left, right) + 1;
+  }
+
+  static class Node {
+    int height = 0;
+    boolean isBalanced = true;
+
+    public Node(int height, boolean isBalanced) {
+      this.height = height;
+      this.isBalanced = isBalanced;
+    }
+  }
+
+  // O(N)
+  static Node isBalancedHeight2(Tree tree) {
+    if (tree == null) return new Node(0, true);
+    Node left = isBalancedHeight2(tree.left);
+    Node right = isBalancedHeight2(tree.right);
+
+    int height = 1 + Math.max(left.height, right.height);
+
+    if (left.isBalanced && right.isBalanced)
+      if (Math.abs(left.height - right.height) > 1)
+        return new Node(height, false);
+      else
+        return new Node(height, true);
+    else
+      return new Node(height, false);
   }
 }
