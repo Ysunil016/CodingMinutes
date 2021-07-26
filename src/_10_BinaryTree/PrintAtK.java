@@ -15,11 +15,20 @@ public class PrintAtK {
     root.left.right.left = new Tree(7);
     root.right.right = new Tree(6);
 
-    List<Integer> level = atLevel(root, 2);
-    for (int x : level)
+    List<Integer> levelNodes = atLevel(root, 2);
+    for (int x : levelNodes)
       System.out.print(x + " ");
+
+    System.out.println();
+
+    levelNodes = new ArrayList<>();
+    atLevel2(root, 2, levelNodes);
+    for (int x : levelNodes)
+      System.out.print(x + " ");
+
   }
 
+  // BFS
   static List<Integer> atLevel(Tree tree, int k) {
     List<Integer> nodesAtLevel = new ArrayList<>();
     Queue<Tree> queue = new LinkedList<>();
@@ -40,5 +49,16 @@ public class PrintAtK {
     }
 
     return nodesAtLevel;
+  }
+
+  // DFS
+  static void atLevel2(Tree tree, int k, List<Integer> result) {
+    if (tree == null) return;
+    if (k == 0) {
+      result.add(tree.val);
+      return;
+    }
+    atLevel2(tree.left, k - 1, result);
+    atLevel2(tree.right, k - 1, result);
   }
 }
