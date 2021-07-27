@@ -10,9 +10,10 @@ public class CycleInLinkedList {
     head.next.next.next = new LinkedList(40);
     head.next.next.next.next = new LinkedList(50);
     head.next.next.next.next.next = new LinkedList(60);
-//    head.next.next.next.next.next.next = head.next.next.next;
+    head.next.next.next.next.next.next = head.next.next.next;
 
     System.out.println(hasCycle(head));
+    System.out.println(cycleOrigin(head).val);
   }
 
   static boolean hasCycle(LinkedList head) {
@@ -28,5 +29,23 @@ public class CycleInLinkedList {
     if (fast == null) return false;
 
     return true;
+  }
+
+  static LinkedList cycleOrigin(LinkedList head) {
+    LinkedList slow = head.next;
+    LinkedList fast = head.next.next;
+
+    while (slow != fast) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    fast = head;
+    while (fast != slow) {
+      slow = slow.next;
+      fast = fast.next;
+    }
+
+    return fast;
   }
 }
