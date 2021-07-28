@@ -74,12 +74,10 @@ public class NK_Ladder {
     dp[0] = 1;
     dp[1] = 1;
 
-    for (int i = 2; i <= maxJump; i++){
-      int counter = i;
-      while (counter >= 0) {
-        dp[i] += dp[counter];
-        counter--;
-      }
+    int sum = 1;
+    for (int i = 2; i <= maxJump; i++) {
+      dp[i] = sum + dp[i - 1];
+      sum = dp[i];
     }
 
     for (int i = maxJump + 1; i <= ladderSize; i++) {
