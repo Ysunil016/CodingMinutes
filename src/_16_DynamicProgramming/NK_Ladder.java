@@ -15,6 +15,8 @@ public class NK_Ladder {
     System.out.println(ways(ladderSize, maxJump, mem));
     System.out.println();
     System.out.println(ways2(ladderSize, maxJump));
+    System.out.println();
+    System.out.println(ways3(ladderSize, maxJump));
   }
 
   // O(Exponential)
@@ -59,6 +61,29 @@ public class NK_Ladder {
         dp[i] += dp[counter];
         counter--;
       }
+    }
+
+    return dp[ladderSize];
+  }
+
+  // O(N)
+  static int ways3(int ladderSize, int maxJump) {
+    if (ladderSize <= 1) return 1;
+
+    int[] dp = new int[ladderSize + 1];
+    dp[0] = 1;
+    dp[1] = 1;
+
+    for (int i = 2; i <= maxJump; i++){
+      int counter = i;
+      while (counter >= 0) {
+        dp[i] += dp[counter];
+        counter--;
+      }
+    }
+
+    for (int i = maxJump + 1; i <= ladderSize; i++) {
+      dp[i] = 2 * dp[i - 1] - dp[i - maxJump - 1];
     }
 
     return dp[ladderSize];
