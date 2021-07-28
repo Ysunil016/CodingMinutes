@@ -30,7 +30,7 @@ public class NK_Ladder {
     return ways;
   }
 
-  // O(NK - BP) - Recursive
+  // O(NK - TD) - Recursive
   static int ways(int ladderSize, int maxJump, int[] mem) {
     if (ladderSize == 0) return 1;
     if (ladderSize < 0) return 0;
@@ -45,7 +45,7 @@ public class NK_Ladder {
     return mem[ladderSize];
   }
 
-  // O(NK - TD)
+  // O(NK - BU)
   static int ways2(int ladderSize, int maxJump) {
     if (ladderSize <= 1) return 1;
 
