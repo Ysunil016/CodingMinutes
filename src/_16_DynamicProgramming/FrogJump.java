@@ -7,7 +7,9 @@ public class FrogJump {
   public static void main(String[] args) {
 //    int[] height = new int[]{10, 10};
 
-    int[] height = new int[]{30, 10, 60, 10, 60, 50};
+//    int[] height = new int[]{30, 10, 60, 10, 60, 50};
+
+    int[] height = new int[]{10, 30, 40, 20};
 
     int startIdx = 0;
     int[] mem = new int[height.length + 1];
