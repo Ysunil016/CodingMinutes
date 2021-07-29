@@ -30,7 +30,7 @@ public class LongestIncreasingSubSequence {
 
   static HashMap<String, Integer> hash = new HashMap<>();
 
-  // O(Linear)
+  // O(Quadratic - Rec - Mem)
   private static int maxLen2(int[] arr, int idx, int prevIndex) {
     if (idx == arr.length) return 0;
 
@@ -50,6 +50,25 @@ public class LongestIncreasingSubSequence {
     hash.put(key, maxValue);
 
     return maxValue;
+  }
+
+  // O(Quadratic - Tabular)
+  private static int maxLen(int[] arr) {
+    int[] dp = new int[arr.length];
+    dp[0] = 1;
+
+    // 50, 4, 10, 8, 30, 100, 150, 10, 600
+//    dp = [1, 1, 2, ...]
+
+    for (int i = 1; i < arr.length; i++) {
+      dp[i] = 1;
+      for (int j = 0; j < i; j++) {
+        if (arr[j] < arr[i])
+          dp[i] = Math.max(dp[i], dp[j] + 1);
+      }
+    }
+
+    return dp[arr.length - 1];
   }
 
 }
