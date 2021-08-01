@@ -28,7 +28,7 @@ public class PrintAtK {
 
   }
 
-  // BFS
+  // DFS
   static List<Integer> atLevel(Tree tree, int k) {
     List<Integer> nodesAtLevel = new ArrayList<>();
     Queue<Tree> queue = new LinkedList<>();

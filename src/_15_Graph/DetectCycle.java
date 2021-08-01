@@ -1,4 +1,4 @@
-package Graph;
+package _15_Graph;
 
 public class DetectCycle {
   public static void main(String[] args) {
