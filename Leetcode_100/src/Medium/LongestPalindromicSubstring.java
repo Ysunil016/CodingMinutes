@@ -3,7 +3,7 @@ package Medium;
 public class LongestPalindromicSubstring {
 
   public static void main(String[] args) {
-    args = new String[]{"au", "abcabcbb", "bbbbb", "pwwkew", "", "aa", "aba", "babac", " ", "  ",};
+    args = new String[]{"au", "abcabcbb", "bbbbb", "pwwkew", "", "aa", "aba", "babac", "bb", "  ",};
     for (String str : args)
       System.out.println(str + " -> " + longestPalindrome(str));
 
@@ -32,7 +32,7 @@ public class LongestPalindromicSubstring {
     int L = left;
     int R = right;
 
-    while (L > 0 && R < str.length() && str.charAt(L) == str.charAt(R)) {
+    while (L >= 0 && R < str.length() && str.charAt(L) == str.charAt(R)) {
       L--;
       R++;
     }
