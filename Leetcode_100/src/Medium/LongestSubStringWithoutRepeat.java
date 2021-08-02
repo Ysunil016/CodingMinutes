@@ -3,8 +3,8 @@ package Medium;
 public class LongestSubStringWithoutRepeat {
 
   public static void main(String[] args) {
-    String[] strings = {"au", "abcabcbb", "bbbbb", "pwwkew", "", "aa", "aba", "babac", " ", "  ",};
-    for (String str : strings)
+    args = new String[]{"au", "abcabcbb", "bbbbb", "pwwkew", "", "aa", "aba", "babac", " ", "  ",};
+    for (String str : args)
       System.out.println(str + " -> " + lengthOfLongestSubstring(str));
   }
 
