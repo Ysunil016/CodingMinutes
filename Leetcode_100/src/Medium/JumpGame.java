@@ -16,7 +16,7 @@ public class JumpGame {
     if (idx >= nums.length) return false;
     if (idx == nums.length - 1) return true;
 
-    if (mem[idx] != 0) return mem[idx] == 1 ? true : false;
+    if (mem[idx] != 0) return mem[idx] == 1;
 
     boolean isTrue = false;
     for (int i = 1; i <= nums[idx]; i++) {
