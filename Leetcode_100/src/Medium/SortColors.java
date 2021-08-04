@@ -28,7 +28,7 @@ public class SortColors {
     right = nums.length - 1;
 
     while (left <= right) {
-      while (left < right && nums[left] == 1) left++;    // Left at Non Zero
+      while (left < right && (nums[left] == 1 || nums[left] == 0)) left++;    // Left at Non Zero
       while (right > left && nums[right] != 1) right--;  // Right at Zero
 
       if (left >= right) break;
